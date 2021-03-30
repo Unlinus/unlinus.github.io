@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C语言基础：Hello World！</title>
+    <url>/2021/03/30/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%EF%BC%9AHello%20World%EF%BC%81/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="开始之前…"><a href="#开始之前…" class="headerlink" title="开始之前…"></a>开始之前…</h1><p>本来打算学学Python的，然后因为种种原因，不得不重新回炉C语言。。。</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote>
+<p>C语言是一种通用的、面向过程式的计算机程序设计语言。1972年，为了移植与开发UNIX操作系统，丹尼斯·里奇在贝尔电话实验室设计开发了C语言。<br>C语言是一种广泛使用的计算机语言，它与Java编程语言一样普及，二者在现代软件程序员之间都得到广泛使用。<br>当前最新的C语言标准为C18 ，在它之前的C语言标准有C17、C11…C99 等。<br>——摘自<a href="https://www.runoob.com/cprogramming/c-tutorial.html">菜鸟教程</a></p>
+</blockquote>
+<h1 id="第一个C程序"><a href="#第一个C程序" class="headerlink" title="第一个C程序"></a>第一个C程序</h1><p>直接上代码：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;Hello World!\n&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行，看看效果如何（本人使用的是Visual Studio 2019）：<br><img src="https://cdn.unlinus.cn/hexo-images/2021-03-30-14-17-03.png" alt="2021-03-30-14-17-03"></p>
+<p>设计一门语言，其实可以说是设计一套约定和规定。只有用户按照这套规定和约定向C语言君输入了正确的指令，C语言君才能领悟用户的意图，对用户设计的程序进行编译，使程序被编译后能够正常运行。</p>
+<h1 id="思考与分析"><a href="#思考与分析" class="headerlink" title="思考与分析"></a>思考与分析</h1><p>现在对以上代码进行简单剖析：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*↓↓↓指定C编译器在实际编译前需要包含哪些预处理器，这里预处理器是stdio.h*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  <span class="comment">//定义主函数，程序从这里开始执行</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/*↓↓↓使用printf函数（格式化输出），将Hello World!输出到屏幕上*/</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello World!\n&quot;</span>);  <span class="comment">//\n是转义字符，用于换行</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;   <span class="comment">//终止main()函数，并返回一个int值0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>知识点</strong><br>这里涉及到了一个知识点——注释。注释用于对某一段程序进行注解，方便开发人员解读程序。注释内容并不是程序执行的一部分。也就是说，编译器会把注释忽略。</p>
+<p>在C语言里，注释分为单行注释和多行注释：</p>
+<ul>
+<li>单行注释用<code>//</code>表示，注释内容仅可以单独占一行，例如：<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//这是单行注释</span></span><br></pre></td></tr></table></figure></li>
+<li>多行注释则用<code>/* */</code>表示，注释内容可以占多行或单独一行，例如：<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">这是多行注释</span></span><br><span class="line"><span class="comment">阿巴阿巴阿巴阿巴阿巴阿巴</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*单行注释*/</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>开发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ESXi6.7一些罕见问题的解决方法</title>
     <url>/2020/04/27/ESXi%E4%B8%80%E4%BA%9B%E7%BD%95%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>一大早睡得正香，突然被一通电话叫醒了（内心<del>万马奔腾</del>一万个不情愿）。“…昨晚停了一次电，服务器全都连不上了，网络有问题，过来帮忙看一下”。点开微信群一看，瞬间不淡定了：“工程师反映，系统远程不了了，网站也打不开”，“停电了，昨晚半夜供电局高压跳闸，我们的电池没能坚持下去”。这不意味着整个机房瞬间失去电力供应了？！</p>
@@ -27,13 +55,50 @@
 ]]></content>
       <categories>
         <category>搬砖随记</category>
-        <category>vSphere</category>
       </categories>
       <tags>
         <tag>服务器</tag>
         <tag>vSphere</tag>
         <tag>故障</tag>
         <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ESXi升级方法 - 从5.5到6.0</title>
+    <url>/2020/04/26/ESXi%E4%BB%8E5.5%E5%88%B06.0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上个月给数据中心的vSphere平台做了一次升级，期间遇到各种各样的坑，还好后期都完美解决了，不然真得跑路了（都是自找的= =）。现在我来把当时的整个操作流程整理一下。</p>
+<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>先简单介绍一下这套vSphere平台的配置。平台共包含10个计算节点，均已组成集群并配置了HA，集群使用IPSAN共享存储，每个计算节点正在运行的ESXi版本是5.1。现在的任务是将每个节点的ESXi版本都升级到5.5。</p>
+<p>那么问题来了，怎样才能保证ESXi能够平滑升级的同时，又不影响到平台上的虚拟机呢？这时，我们可以利用集群的特性，将需要升级的节点上的虚拟机热迁移到其他节点（热迁移需要配置vMotion），然后将这个节点切换到维护模式，再进行升级。这样既能完成升级，又能保证业务不中断，岂不美哉！</p>
+<h1 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h1><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>前面balabala了一堆废话，是时候开始实操了！我们先准备好一些东西：</p>
+<ol>
+<li>超级终端软件（如PuTTY、SecureCRT、XShell、MobaXTerm等，Win10 CMD自带的SSH功能也是可以的）；</li>
+<li>ESXi 5.5升级包（可从VMware官网或其他途径获取）</li>
+<li>VMware vSphere Client（vSphere客户端）</li>
+</ol>
+<h2 id="通过vSphere-Client进行操作"><a href="#通过vSphere-Client进行操作" class="headerlink" title="通过vSphere Client进行操作"></a>通过vSphere Client进行操作</h2><p>使用vSphere Client登录到ESXi节点，将节点切换到维护模式：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-00-29.png" alt="2020-04-26-18-00-29"></p>
+<p><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-04-01.png" alt="2020-04-26-18-04-01"></p>
+<p>将ESXi升级包上传到数据存储，并记下数据存储路径，后续升级操作要用到。例如我这里将升级包上传到了本地存储，那么我现在得记下本地存储的路径：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-20-10.png" alt="2020-04-26-18-20-10"></p>
+<h2 id="通过SSH登录到ESXi节点"><a href="#通过SSH登录到ESXi节点" class="headerlink" title="通过SSH登录到ESXi节点"></a>通过SSH登录到ESXi节点</h2><p>打开该节点的配置→安全配置文件，启动SSH服务：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-05-41.png" alt="2020-04-26-18-05-41"></p>
+<p><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-06-45.png" alt="2020-04-26-18-06-45"></p>
+<p>打开超级终端软件（笔者用的是XShell），使用ESXi的账号密码，用SSH登录到ESXi节点：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-09-19.png" alt="2020-04-26-18-09-19"></p>
+<h2 id="使用命令对ESXi进行平滑升级"><a href="#使用命令对ESXi进行平滑升级" class="headerlink" title="使用命令对ESXi进行平滑升级"></a>使用命令对ESXi进行平滑升级</h2><p>使用这条命令列出ESXi升级包的版本：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">esxcli software sources profile list -d &lt;ESXi升级包所在的数据存储的路径&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-15-43.png" alt="2020-04-26-18-15-43"><br>（注：数据存储路径见本文3.2）</p>
+<p>然后使用这条命令，通过升级包进行升级</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">esxcli software profile update -d &lt;ESXi升级包所在的数据存储的路径&gt; -p &lt;ESXi升级包版本&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-19-32-24.png" alt="2020-04-26-19-32-24"><br>稍等片刻会出现升级结果。升级成功后，要求重新启动，这时输入reboot命令，将该节点重启即可。</p>
+<h2 id="后续操作"><a href="#后续操作" class="headerlink" title="后续操作"></a>后续操作</h2><p>重启完成后，再次用vSphere Client登录到ESXi，看看ESXi的版本是不是升级到5.5了？<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-19-40-10.png" alt="2020-04-26-19-40-10"></p>
+<p>确认升级成功后，将ESXi节点退出维护模式：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-19-44-17.png" alt="2020-04-26-19-44-17"></p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>以上就是ESXi的平滑升级流程。当然，在生产环境下，系统升级前必须拟定相应的方案（例如升级流程、应急预案等），并对原系统进行测试、数据备份，升级过程中必须严格遵循操作规程，升级后还需要保留一定时长的观察期，当这一系列流程都顺利完成后，才能正式交付使用。</p>
+]]></content>
+      <categories>
+        <category>搬砖随记</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+        <tag>vSphere</tag>
+        <tag>虚拟化</tag>
+        <tag>升级</tag>
       </tags>
   </entry>
   <entry>
@@ -150,8 +215,6 @@
 <h1 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h1><p>以上内容只介绍了一个最基本、最小化的FusionAccess环境搭建过程。后续我会继续补充桌面云管理平台的使用教程。</p>
 ]]></content>
       <categories>
-        <category>搬砖随记</category>
-        <category>Linux</category>
         <category>瞎折腾</category>
       </categories>
       <tags>
@@ -159,45 +222,6 @@
         <tag>虚拟化</tag>
         <tag>桌面云</tag>
         <tag>华为</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ESXi升级方法 - 从5.5到6.0</title>
-    <url>/2020/04/26/ESXi%E4%BB%8E5.5%E5%88%B06.0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上个月给数据中心的vSphere平台做了一次升级，期间遇到各种各样的坑，还好后期都完美解决了，不然真得跑路了（都是自找的= =）。现在我来把当时的整个操作流程整理一下。</p>
-<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>先简单介绍一下这套vSphere平台的配置。平台共包含10个计算节点，均已组成集群并配置了HA，集群使用IPSAN共享存储，每个计算节点正在运行的ESXi版本是5.1。现在的任务是将每个节点的ESXi版本都升级到5.5。</p>
-<p>那么问题来了，怎样才能保证ESXi能够平滑升级的同时，又不影响到平台上的虚拟机呢？这时，我们可以利用集群的特性，将需要升级的节点上的虚拟机热迁移到其他节点（热迁移需要配置vMotion），然后将这个节点切换到维护模式，再进行升级。这样既能完成升级，又能保证业务不中断，岂不美哉！</p>
-<h1 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h1><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>前面balabala了一堆废话，是时候开始实操了！我们先准备好一些东西：</p>
-<ol>
-<li>超级终端软件（如PuTTY、SecureCRT、XShell、MobaXTerm等，Win10 CMD自带的SSH功能也是可以的）；</li>
-<li>ESXi 5.5升级包（可从VMware官网或其他途径获取）</li>
-<li>VMware vSphere Client（vSphere客户端）</li>
-</ol>
-<h2 id="通过vSphere-Client进行操作"><a href="#通过vSphere-Client进行操作" class="headerlink" title="通过vSphere Client进行操作"></a>通过vSphere Client进行操作</h2><p>使用vSphere Client登录到ESXi节点，将节点切换到维护模式：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-00-29.png" alt="2020-04-26-18-00-29"></p>
-<p><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-04-01.png" alt="2020-04-26-18-04-01"></p>
-<p>将ESXi升级包上传到数据存储，并记下数据存储路径，后续升级操作要用到。例如我这里将升级包上传到了本地存储，那么我现在得记下本地存储的路径：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-20-10.png" alt="2020-04-26-18-20-10"></p>
-<h2 id="通过SSH登录到ESXi节点"><a href="#通过SSH登录到ESXi节点" class="headerlink" title="通过SSH登录到ESXi节点"></a>通过SSH登录到ESXi节点</h2><p>打开该节点的配置→安全配置文件，启动SSH服务：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-05-41.png" alt="2020-04-26-18-05-41"></p>
-<p><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-06-45.png" alt="2020-04-26-18-06-45"></p>
-<p>打开超级终端软件（笔者用的是XShell），使用ESXi的账号密码，用SSH登录到ESXi节点：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-09-19.png" alt="2020-04-26-18-09-19"></p>
-<h2 id="使用命令对ESXi进行平滑升级"><a href="#使用命令对ESXi进行平滑升级" class="headerlink" title="使用命令对ESXi进行平滑升级"></a>使用命令对ESXi进行平滑升级</h2><p>使用这条命令列出ESXi升级包的版本：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">esxcli software sources profile list -d &lt;ESXi升级包所在的数据存储的路径&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-15-43.png" alt="2020-04-26-18-15-43"><br>（注：数据存储路径见本文3.2）</p>
-<p>然后使用这条命令，通过升级包进行升级</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">esxcli software profile update -d &lt;ESXi升级包所在的数据存储的路径&gt; -p &lt;ESXi升级包版本&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-19-32-24.png" alt="2020-04-26-19-32-24"><br>稍等片刻会出现升级结果。升级成功后，要求重新启动，这时输入reboot命令，将该节点重启即可。</p>
-<h2 id="后续操作"><a href="#后续操作" class="headerlink" title="后续操作"></a>后续操作</h2><p>重启完成后，再次用vSphere Client登录到ESXi，看看ESXi的版本是不是升级到5.5了？<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-19-40-10.png" alt="2020-04-26-19-40-10"></p>
-<p>确认升级成功后，将ESXi节点退出维护模式：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-19-44-17.png" alt="2020-04-26-19-44-17"></p>
-<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>以上就是ESXi的平滑升级流程。当然，在生产环境下，系统升级前必须拟定相应的方案（例如升级流程、应急预案等），并对原系统进行测试、数据备份，升级过程中必须严格遵循操作规程，升级后还需要保留一定时长的观察期，当这一系列流程都顺利完成后，才能正式交付使用。</p>
-]]></content>
-      <categories>
-        <category>搬砖随记</category>
-        <category>vSphere</category>
-      </categories>
-      <tags>
-        <tag>服务器</tag>
-        <tag>vSphere</tag>
-        <tag>虚拟化</tag>
-        <tag>升级</tag>
       </tags>
   </entry>
   <entry>
@@ -228,9 +252,8 @@
 </ol>
 ]]></content>
       <categories>
-        <category>博客</category>
-        <category>Hexo</category>
         <category>瞎折腾</category>
+        <category>Hexo</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
@@ -254,7 +277,6 @@
 <h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>服务器不需要漂亮的图形界面，不需要花里胡哨的功能，只需要具备最基本的功能、更低的系统资源消耗、更高的效率和稳定性。这些要求，Linux都完美地做到了。如今，Linux在云计算、大数据、嵌入式开发等领域得到了广泛应用。看到这里，你觉得还有不学习Linux的理由吗？</p>
 ]]></content>
       <categories>
-        <category>学渣笔记</category>
         <category>Linux</category>
       </categories>
       <tags>
@@ -287,8 +309,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>学渣笔记</category>
-        <category>华为云</category>
+        <category>华为云计算</category>
       </categories>
       <tags>
         <tag>云计算</tag>
@@ -325,8 +346,7 @@
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>新手可能会觉得这篇文章非常枯燥无味，这个很正常，本人也是这么熬过来的。毕竟理论是实践的基础，在搞懂了虚拟化的概念后，后续学习将会变得更加顺利。</p>
 ]]></content>
       <categories>
-        <category>学渣笔记</category>
-        <category>华为云</category>
+        <category>华为云计算</category>
       </categories>
       <tags>
         <tag>云计算</tag>
@@ -377,8 +397,7 @@
 <h2 id="IO-through"><a href="#IO-through" class="headerlink" title="IO-through"></a>IO-through</h2><p>IO设备直通，也就是裸设备映射，直接将物理设备（如硬盘、网卡等）分配给虚拟机，但是需要硬件支持（在Xen下由Dom0分配，但是访问使用直接使用,不经过Dom0，需要硬件支持）。</p>
 ]]></content>
       <categories>
-        <category>学渣笔记</category>
-        <category>华为云</category>
+        <category>华为云计算</category>
       </categories>
       <tags>
         <tag>云计算</tag>
@@ -414,15 +433,14 @@
 <p><strong>特点：采用异步机制，GuestOS将IO请求批量发送到virtio-ring而无需等待，供QEMU的virtio后端驱动批量读取执行，而GuestOS无需等待执行可以批量从virtio-ring中读取IO操作结果（非阻塞），大幅提升了性能。</strong></p>
 ]]></content>
       <categories>
-        <category>学渣笔记</category>
-        <category>华为云</category>
+        <category>华为云计算</category>
       </categories>
       <tags>
         <tag>云计算</tag>
       </tags>
   </entry>
   <entry>
-    <title>P6-存储虚拟化</title>
+    <title>P5-存储虚拟化</title>
     <url>/2020/08/17/P5-%E5%AD%98%E5%82%A8%E8%99%9A%E6%8B%9F%E5%8C%96/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>说到存储，可能大多数人首先想到的是硬盘、U盘，然而这些都只是冰山一角。在虚拟化领域，存储是以什么样的形式存在的呢？</p>
 <h1 id="存储介质：硬盘"><a href="#存储介质：硬盘" class="headerlink" title="存储介质：硬盘"></a>存储介质：硬盘</h1><p>存储介质种类繁多。在虚拟化领域，硬盘的使用非常广泛，下面会重点介绍硬盘的分类。</p>
@@ -454,8 +472,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>学渣笔记</category>
-        <category>华为云</category>
+        <category>华为云计算</category>
       </categories>
       <tags>
         <tag>云计算</tag>
@@ -812,7 +829,6 @@
 ]]></content>
       <categories>
         <category>搬砖随记</category>
-        <category>服务器</category>
       </categories>
       <tags>
         <tag>RAID</tag>
@@ -847,7 +863,6 @@
 ]]></content>
       <categories>
         <category>搬砖随记</category>
-        <category>vSphere</category>
       </categories>
       <tags>
         <tag>服务器</tag>
@@ -895,7 +910,6 @@
 ]]></content>
       <categories>
         <category>搬砖随记</category>
-        <category>vSphere</category>
       </categories>
       <tags>
         <tag>服务器</tag>
@@ -952,7 +966,6 @@
 ]]></content>
       <categories>
         <category>搬砖随记</category>
-        <category>Linux</category>
       </categories>
       <tags>
         <tag>服务器</tag>
@@ -1027,8 +1040,7 @@
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本文实现的无人值守安装只能算是半自动化部署方式，因为在安装过程中，还需要对安装的主机进行一些参数设置。在实际生产环境下，还需要根据服务器的硬件配置（例如磁盘容量等），来定制应答文件。总之，通过Kickstart+PXE批量部署操作系统，不仅能够将运维人员从重复性的工作中解放出来，还能极大地提升系统安装效率。</p>
 ]]></content>
       <categories>
-        <category>搬砖随记</category>
-        <category>Linux</category>
+        <category>瞎折腾</category>
       </categories>
       <tags>
         <tag>服务器</tag>
