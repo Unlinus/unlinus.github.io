@@ -29,44 +29,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ESXi升级方法 - 从5.5到6.0</title>
-    <url>/2020/04/26/ESXi%E4%BB%8E5.5%E5%88%B06.0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上个月给数据中心的vSphere平台做了一次升级，期间遇到各种各样的坑，还好后期都完美解决了，不然真得跑路了（都是自找的= =）。现在我来把当时的整个操作流程整理一下。</p>
-<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>先简单介绍一下这套vSphere平台的配置。平台共包含10个计算节点，均已组成集群并配置了HA，集群使用IPSAN共享存储，每个计算节点正在运行的ESXi版本是5.1。现在的任务是将每个节点的ESXi版本都升级到5.5。</p>
-<p>那么问题来了，怎样才能保证ESXi能够平滑升级的同时，又不影响到平台上的虚拟机呢？这时，我们可以利用集群的特性，将需要升级的节点上的虚拟机热迁移到其他节点（热迁移需要配置vMotion），然后将这个节点切换到维护模式，再进行升级。这样既能完成升级，又能保证业务不中断，岂不美哉！</p>
-<h1 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h1><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>前面balabala了一堆废话，是时候开始实操了！我们先准备好一些东西：</p>
-<ol>
-<li>超级终端软件（如PuTTY、SecureCRT、XShell、MobaXTerm等，Win10 CMD自带的SSH功能也是可以的）；</li>
-<li>ESXi 5.5升级包（可从VMware官网或其他途径获取）</li>
-<li>VMware vSphere Client（vSphere客户端）</li>
-</ol>
-<h2 id="通过vSphere-Client进行操作"><a href="#通过vSphere-Client进行操作" class="headerlink" title="通过vSphere Client进行操作"></a>通过vSphere Client进行操作</h2><p>使用vSphere Client登录到ESXi节点，将节点切换到维护模式：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-00-29.png" alt="2020-04-26-18-00-29"></p>
-<p><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-04-01.png" alt="2020-04-26-18-04-01"></p>
-<p>将ESXi升级包上传到数据存储，并记下数据存储路径，后续升级操作要用到。例如我这里将升级包上传到了本地存储，那么我现在得记下本地存储的路径：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-20-10.png" alt="2020-04-26-18-20-10"></p>
-<h2 id="通过SSH登录到ESXi节点"><a href="#通过SSH登录到ESXi节点" class="headerlink" title="通过SSH登录到ESXi节点"></a>通过SSH登录到ESXi节点</h2><p>打开该节点的配置→安全配置文件，启动SSH服务：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-05-41.png" alt="2020-04-26-18-05-41"></p>
-<p><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-06-45.png" alt="2020-04-26-18-06-45"></p>
-<p>打开超级终端软件（笔者用的是XShell），使用ESXi的账号密码，用SSH登录到ESXi节点：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-09-19.png" alt="2020-04-26-18-09-19"></p>
-<h2 id="使用命令对ESXi进行平滑升级"><a href="#使用命令对ESXi进行平滑升级" class="headerlink" title="使用命令对ESXi进行平滑升级"></a>使用命令对ESXi进行平滑升级</h2><p>使用这条命令列出ESXi升级包的版本：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">esxcli software sources profile list -d &lt;ESXi升级包所在的数据存储的路径&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-15-43.png" alt="2020-04-26-18-15-43"><br>（注：数据存储路径见本文3.2）</p>
-<p>然后使用这条命令，通过升级包进行升级</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">esxcli software profile update -d &lt;ESXi升级包所在的数据存储的路径&gt; -p &lt;ESXi升级包版本&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-19-32-24.png" alt="2020-04-26-19-32-24"><br>稍等片刻会出现升级结果。升级成功后，要求重新启动，这时输入reboot命令，将该节点重启即可。</p>
-<h2 id="后续操作"><a href="#后续操作" class="headerlink" title="后续操作"></a>后续操作</h2><p>重启完成后，再次用vSphere Client登录到ESXi，看看ESXi的版本是不是升级到5.5了？<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-19-40-10.png" alt="2020-04-26-19-40-10"></p>
-<p>确认升级成功后，将ESXi节点退出维护模式：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-19-44-17.png" alt="2020-04-26-19-44-17"></p>
-<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>以上就是ESXi的平滑升级流程。当然，在生产环境下，系统升级前必须拟定相应的方案（例如升级流程、应急预案等），并对原系统进行测试、数据备份，升级过程中必须严格遵循操作规程，升级后还需要保留一定时长的观察期，当这一系列流程都顺利完成后，才能正式交付使用。</p>
-]]></content>
-      <categories>
-        <category>搬砖随记</category>
-      </categories>
-      <tags>
-        <tag>虚拟化</tag>
-        <tag>服务器</tag>
-        <tag>vSphere</tag>
-        <tag>升级</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ESXi6.7一些罕见问题的解决方法</title>
     <url>/2020/04/27/ESXi%E4%B8%80%E4%BA%9B%E7%BD%95%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>一大早睡得正香，突然被一通电话叫醒了（内心<del>万马奔腾</del>一万个不情愿）。“…昨晚停了一次电，服务器全都连不上了，网络有问题，过来帮忙看一下”。点开微信群一看，瞬间不淡定了：“工程师反映，系统远程不了了，网站也打不开”，“停电了，昨晚半夜供电局高压跳闸，我们的电池没能坚持下去”。这不意味着整个机房瞬间失去电力供应了？！</p>
@@ -99,6 +61,44 @@
         <tag>vSphere</tag>
         <tag>故障</tag>
         <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ESXi升级方法 - 从5.5到6.0</title>
+    <url>/2020/04/26/ESXi%E4%BB%8E5.5%E5%88%B06.0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上个月给数据中心的vSphere平台做了一次升级，期间遇到各种各样的坑，还好后期都完美解决了，不然真得跑路了（都是自找的= =）。现在我来把当时的整个操作流程整理一下。</p>
+<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>先简单介绍一下这套vSphere平台的配置。平台共包含10个计算节点，均已组成集群并配置了HA，集群使用IPSAN共享存储，每个计算节点正在运行的ESXi版本是5.1。现在的任务是将每个节点的ESXi版本都升级到5.5。</p>
+<p>那么问题来了，怎样才能保证ESXi能够平滑升级的同时，又不影响到平台上的虚拟机呢？这时，我们可以利用集群的特性，将需要升级的节点上的虚拟机热迁移到其他节点（热迁移需要配置vMotion），然后将这个节点切换到维护模式，再进行升级。这样既能完成升级，又能保证业务不中断，岂不美哉！</p>
+<h1 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h1><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>前面balabala了一堆废话，是时候开始实操了！我们先准备好一些东西：</p>
+<ol>
+<li>超级终端软件（如PuTTY、SecureCRT、XShell、MobaXTerm等，Win10 CMD自带的SSH功能也是可以的）；</li>
+<li>ESXi 5.5升级包（可从VMware官网或其他途径获取）</li>
+<li>VMware vSphere Client（vSphere客户端）</li>
+</ol>
+<h2 id="通过vSphere-Client进行操作"><a href="#通过vSphere-Client进行操作" class="headerlink" title="通过vSphere Client进行操作"></a>通过vSphere Client进行操作</h2><p>使用vSphere Client登录到ESXi节点，将节点切换到维护模式：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-00-29.png" alt="2020-04-26-18-00-29"></p>
+<p><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-04-01.png" alt="2020-04-26-18-04-01"></p>
+<p>将ESXi升级包上传到数据存储，并记下数据存储路径，后续升级操作要用到。例如我这里将升级包上传到了本地存储，那么我现在得记下本地存储的路径：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-20-10.png" alt="2020-04-26-18-20-10"></p>
+<h2 id="通过SSH登录到ESXi节点"><a href="#通过SSH登录到ESXi节点" class="headerlink" title="通过SSH登录到ESXi节点"></a>通过SSH登录到ESXi节点</h2><p>打开该节点的配置→安全配置文件，启动SSH服务：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-05-41.png" alt="2020-04-26-18-05-41"></p>
+<p><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-06-45.png" alt="2020-04-26-18-06-45"></p>
+<p>打开超级终端软件（笔者用的是XShell），使用ESXi的账号密码，用SSH登录到ESXi节点：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-09-19.png" alt="2020-04-26-18-09-19"></p>
+<h2 id="使用命令对ESXi进行平滑升级"><a href="#使用命令对ESXi进行平滑升级" class="headerlink" title="使用命令对ESXi进行平滑升级"></a>使用命令对ESXi进行平滑升级</h2><p>使用这条命令列出ESXi升级包的版本：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">esxcli software sources profile list -d &lt;ESXi升级包所在的数据存储的路径&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-18-15-43.png" alt="2020-04-26-18-15-43"><br>（注：数据存储路径见本文3.2）</p>
+<p>然后使用这条命令，通过升级包进行升级</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">esxcli software profile update -d &lt;ESXi升级包所在的数据存储的路径&gt; -p &lt;ESXi升级包版本&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-19-32-24.png" alt="2020-04-26-19-32-24"><br>稍等片刻会出现升级结果。升级成功后，要求重新启动，这时输入reboot命令，将该节点重启即可。</p>
+<h2 id="后续操作"><a href="#后续操作" class="headerlink" title="后续操作"></a>后续操作</h2><p>重启完成后，再次用vSphere Client登录到ESXi，看看ESXi的版本是不是升级到5.5了？<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-19-40-10.png" alt="2020-04-26-19-40-10"></p>
+<p>确认升级成功后，将ESXi节点退出维护模式：<br><img src="https://cdn.unlinus.cn/hexo-images/2020-04-26-19-44-17.png" alt="2020-04-26-19-44-17"></p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>以上就是ESXi的平滑升级流程。当然，在生产环境下，系统升级前必须拟定相应的方案（例如升级流程、应急预案等），并对原系统进行测试、数据备份，升级过程中必须严格遵循操作规程，升级后还需要保留一定时长的观察期，当这一系列流程都顺利完成后，才能正式交付使用。</p>
+]]></content>
+      <categories>
+        <category>搬砖随记</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+        <tag>vSphere</tag>
+        <tag>虚拟化</tag>
+        <tag>升级</tag>
       </tags>
   </entry>
   <entry>
@@ -218,8 +218,8 @@
         <category>瞎折腾</category>
       </categories>
       <tags>
-        <tag>虚拟化</tag>
         <tag>服务器</tag>
+        <tag>虚拟化</tag>
         <tag>桌面云</tag>
         <tag>华为</tag>
       </tags>
@@ -800,8 +800,8 @@
         <category>瞎折腾</category>
       </categories>
       <tags>
-        <tag>虚拟化</tag>
         <tag>服务器</tag>
+        <tag>虚拟化</tag>
         <tag>华为</tag>
         <tag>云计算</tag>
       </tags>
