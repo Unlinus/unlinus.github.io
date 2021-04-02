@@ -29,6 +29,88 @@
       </tags>
   </entry>
   <entry>
+    <title>C语言基础：变量与常量</title>
+    <url>/2021/04/02/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%EF%BC%9A%E5%8F%98%E9%87%8F%E4%B8%8E%E5%B8%B8%E9%87%8F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>变量和常量是程序处理的两种基本数据对象。</p>
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="变量简介"><a href="#变量简介" class="headerlink" title="变量简介"></a>变量简介</h2><p>变量即程序可操作的存储空间。程序可以通过直接调用变量名，来使用变量里面的数据。</p>
+<h2 id="变量命名方式"><a href="#变量命名方式" class="headerlink" title="变量命名方式"></a>变量命名方式</h2><p>变量的命名方式有明确的要求。</p>
+<ol>
+<li>变量名只能由26个大/小写字母、数字、下划线组合而成。</li>
+<li>变量名的首字符必须是字母或下划线。例如<code>test123</code>、<code>_killer</code>；</li>
+<li>变量名区分大小写。例如，<code>Unlinus</code>和<code>unlinus</code>是两个不同的变量。</li>
+<li>不能使用关键字给变量命名。<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2>截至目前为止，C语言的关键字共有44个。</li>
+</ol>
+<ul>
+<li>ANSI C：<table>
+<tr>
+<td>auto</td>
+<td>break</td>
+<td>case</td>
+<td>char</td>
+<td>const</td>
+<td>continue</td>
+<td>default</td>
+<td>do</td>
+</tr>
+<tr>
+<td>double</td>
+<td>else</td>
+<td>enum</td>
+<td>extern</td>
+<td>float</td>
+<td>for</td>
+<td>goto</td>
+<td>if</td>
+</tr>
+<tr>
+<td>int</td>
+<td>long</td>
+<td>register</td>
+<td>return</td>
+<td>short</td>
+<td>signed</td>
+<td>sizeof</td>
+<td>static</td>
+</tr>
+<tr>
+<td>struct</td>
+<td>switch</td>
+<td>typeof</td>
+<td>union</td>
+<td>unsigned</td>
+<td>void</td>
+<td>volatile</td>
+<td>while</td>
+</tr>
+</table></li>
+<li>C99新增关键字（1999年）：<table>
+<td>inline</td>
+<td>restrict</td>
+<td>_Bool</td>
+<td>_Complex</td>
+<td>_Imaginary</td>
+</table></li>
+<li>C11新增关键字（2011年）：<table>
+<td>_Alignas</td>
+<td>_Alignof</td>
+<td>_Atomic</td>
+<td>_Static_assert</td>
+<td>_Noreturn</td>
+<td>Thread_local</td>
+<td>_Generic</td>
+</table>
+## 数据类型
+未完待续...</li>
+</ul>
+]]></content>
+      <categories>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>开发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ESXi6.7一些罕见问题的解决方法</title>
     <url>/2020/04/27/ESXi%E4%B8%80%E4%BA%9B%E7%BD%95%E8%A7%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>一大早睡得正香，突然被一通电话叫醒了（内心<del>万马奔腾</del>一万个不情愿）。“…昨晚停了一次电，服务器全都连不上了，网络有问题，过来帮忙看一下”。点开微信群一看，瞬间不淡定了：“工程师反映，系统远程不了了，网站也打不开”，“停电了，昨晚半夜供电局高压跳闸，我们的电池没能坚持下去”。这不意味着整个机房瞬间失去电力供应了？！</p>
