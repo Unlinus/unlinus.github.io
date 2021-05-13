@@ -38,8 +38,9 @@
 <li>变量名只能由26个大/小写字母、数字、下划线组合而成。</li>
 <li>变量名的首字符必须是字母或下划线。例如<code>test123</code>、<code>_killer</code>；</li>
 <li>变量名区分大小写。例如，<code>Unlinus</code>和<code>unlinus</code>是两个不同的变量。</li>
-<li>不能使用关键字给变量命名。<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2>截至目前为止，C语言的关键字共有44个。</li>
+<li>不能使用关键字给变量命名。</li>
 </ol>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><p>截至目前为止，C语言的关键字共有44个。</p>
 <ul>
 <li>ANSI C：<table>
 <tr>
@@ -99,9 +100,16 @@
 <td>Thread_local</td>
 <td>_Generic</td>
 </table>
-## 数据类型
-未完待续...</li>
+
+</li>
 </ul>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>前面讲过，变量是程序可操作的存储空间。那么，这个存储空间的大小我们称之为数据类型。数据类型用于存放不同类型的数据，以提高存储空间的利用率。常见数据类型有:</p>
+<ol>
+<li>整型(int)，反映了所在主机中整数的最自然长度（主机不同，长度也不同）；</li>
+<li>字符型(char) ，只占用一个字节；</li>
+<li>单精度浮点型(float) ；</li>
+<li>双精度浮点型(double) 。</li>
+</ol>
 ]]></content>
       <categories>
         <category>C语言</category>
