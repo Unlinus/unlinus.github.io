@@ -11,6 +11,48 @@
 <p><img src="https://cdn.unlinus.cn/hexo-images/2021-05-24-19-59-01.png" alt="2021-05-24-19-59-01"></p>
 <p><strong>国民英雄，名垂青史！</strong><br>禾下乘凉梦，不悔是初心。<br>最可爱的人，我们永远不会忘记您！</p>
 ]]></content>
+      <categories>
+        <category>特辑</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>使用Diskpart优雅地管理你的磁盘分区</title>
+    <url>/2021/05/27/%E4%BD%BF%E7%94%A8Diskpart%E4%BC%98%E9%9B%85%E5%9C%B0%E7%AE%A1%E7%90%86%E4%BD%A0%E7%9A%84%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><del>强迫症（OCD）属于焦虑障碍的一种类型，是一组以强迫思维和强迫行为为主要临床表现的神经精神疾病，其特点为有意识的强迫和反强迫并存，一些毫无意义、甚至违背自己意愿的想法或冲动反反复复侵入患者的日常生活。患者虽体验到这些想法或冲动是来源于自身，极力抵抗，但始终无法控制，二者强烈的冲突使其感到巨大的焦虑和痛苦，影响学习工作、人际交往甚至生活起居。</del><br>我们每次在虚拟机上安装Windows，设置Windows安装位置的时候，都会提示“Windows可能要为系统文件创建额外的分区”。这样安装的话会默认创建EFI（存放EFI引导文件）、MSR（保留分区）和主分区，强迫症表示非常不爽。撇开强迫症不说，如果需要扩展磁盘空间，有个MSR分区卡在中间的话，根本没法进行在线扩容，需要进入Windows PE利用分区软件来进行扩容，带来极大的不便。我们可以利用Windows安装镜像自带的Diskpart工具，亲手进行磁盘分区。</p>
+<h1 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h1><h2 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h2><ul>
+<li>系统镜像文件：Windows Server 2019镜像文件</li>
+<li>虚拟化平台：VMware vSphere 7.0u2</li>
+<li>一台能上网的破笔记本</li>
+<li>一位懂电脑并且会用vSphere的靓仔or靓女/滑稽</li>
+</ul>
+<h2 id="安装伊始"><a href="#安装伊始" class="headerlink" title="安装伊始"></a>安装伊始</h2><p>照常创建虚拟机，挂载Windows安装镜像，一路来到Windows安装界面：<br><img src="https://cdn.unlinus.cn/hexo-images/2021-05-27-18-16-22.png" alt="2021-05-27-18-16-22"></p>
+<p>点击下一步→修复计算机：<br><img src="https://cdn.unlinus.cn/hexo-images/2021-05-27-19-00-45.png" alt="2021-05-27-19-00-45"></p>
+<p>依次点击疑难解答→命令提示符，进入命令行界面。没错，就是喜闻乐见的cmd：<br><img src="https://cdn.unlinus.cn/hexo-images/2021-05-27-19-01-49.png" alt="2021-05-27-19-01-49"><br><img src="https://cdn.unlinus.cn/hexo-images/2021-05-27-19-01-59.png" alt="2021-05-27-19-01-59"></p>
+<p>输入diskpart运行磁盘管理工具。<br><img src="https://cdn.unlinus.cn/hexo-images/2021-05-27-19-04-10.png" alt="2021-05-27-19-04-10"></p>
+<p>diskpart提供了比较丰富的磁盘管理功能，可以实现磁盘的初始化、分区新建、格式化、删除等功能。如果不熟悉diskpart，可以输入<code>help</code>显示帮助信息。</p>
+<p>如图，使用<code>list disk</code>列出所有磁盘，然后根据返回的信息，输入<code>select disk 0</code>选中需要操作的磁盘:<br><img src="https://cdn.unlinus.cn/hexo-images/2021-05-27-19-08-31.png" alt="2021-05-27-19-08-31"></p>
+<p>由于采用UEFI引导方式，故需要将磁盘初始化为GPT格式</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DISKPART&gt;convert gpt</span><br><span class="line">DiskPart 已将所选磁盘成功地转换为 GPT 格式。</span><br></pre></td></tr></table></figure>
+
+<p>创建一个大小为512MB的EFI分区：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DISKPART&gt;create partition efi size&#x3D;512</span><br><span class="line">DiskPart 成功地创建了指定分区。</span><br></pre></td></tr></table></figure>
+
+<p>再创建一个主分区，用于安装操作系统（如果不指定分区大小，将会使用所有剩余空间来创建分区）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DISKPART&gt;create partition primary</span><br><span class="line">DiskPart 成功地创建了指定分区。</span><br></pre></td></tr></table></figure>
+
+<p>输入<code>list partition</code>，列出所有分区，确保无误：<br><img src="https://cdn.unlinus.cn/hexo-images/2021-05-27-19-18-41.png" alt="2021-05-27-19-18-41"></p>
+<p>输入<code>exit</code>退出Diskpart，然后输入<code>setup.exe</code>，重新进入安装程序。</p>
+<h2 id="后续步骤"><a href="#后续步骤" class="headerlink" title="后续步骤"></a>后续步骤</h2><p>像往常一样正常安装Windows即可。<br><img src="https://cdn.unlinus.cn/hexo-images/2021-05-27-19-22-18.png" alt="2021-05-27-19-22-18"></p>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="https://baike.baidu.com/item/diskpart/2340530?fr=aladdin#6">https://baike.baidu.com/item/diskpart/2340530?fr=aladdin#6</a><br><a href="https://www.jianshu.com/p/8d63abf6a2b1">https://www.jianshu.com/p/8d63abf6a2b1</a></p>
+]]></content>
+      <categories>
+        <category>瞎折腾</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+        <tag>运维</tag>
+        <tag>Windows</tag>
+      </tags>
   </entry>
   <entry>
     <title>C语言基础：变量与常量</title>
