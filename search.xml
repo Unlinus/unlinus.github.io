@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>先生千古，国之功勋</title>
-    <url>/2021/05/22/%E5%85%88%E7%94%9F%E5%8D%83%E5%8F%A4%EF%BC%8C%E5%9B%BD%E4%B9%8B%E5%8A%9F%E5%8B%8B/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>这是我至今仍不愿相信的事情。</p>
-<blockquote>
-<p>据新华社报道，“杂交水稻之父”、中国工程院院士、“共和国勋章”获得者袁隆平，5月22日13点07分在湖南长沙逝世，享年91岁。</p>
-</blockquote>
-<p>我和袁隆平先生的一面之缘，来源于2009年出版的《新中国第一》（第51章：第一个特等发明奖——杂交水稻）。<br>这一面之缘，足以令我毕生铭记。<br>终究还是破防了，在世名人成为了历史。</p>
-<p><img src="https://cdn.unlinus.cn/hexo-images/2021-05-24-19-59-01.png" alt="2021-05-24-19-59-01"></p>
-<p><strong>国民英雄，名垂青史！</strong><br>禾下乘凉梦，不悔是初心。<br>最可爱的人，我们永远不会忘记您！</p>
-]]></content>
-      <categories>
-        <category>特辑</category>
-      </categories>
-  </entry>
-  <entry>
     <title>使用Diskpart优雅地管理你的磁盘分区</title>
     <url>/2021/05/27/%E4%BD%BF%E7%94%A8Diskpart%E4%BC%98%E9%9B%85%E5%9C%B0%E7%AE%A1%E7%90%86%E4%BD%A0%E7%9A%84%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><del>强迫症（OCD）属于焦虑障碍的一种类型，是一组以强迫思维和强迫行为为主要临床表现的神经精神疾病，其特点为有意识的强迫和反强迫并存，一些毫无意义、甚至违背自己意愿的想法或冲动反反复复侵入患者的日常生活。患者虽体验到这些想法或冲动是来源于自身，极力抵抗，但始终无法控制，二者强烈的冲突使其感到巨大的焦虑和痛苦，影响学习工作、人际交往甚至生活起居。</del><br>我们每次在虚拟机上安装Windows，设置Windows安装位置的时候，都会提示“Windows可能要为系统文件创建额外的分区”。这样安装的话会默认创建EFI（存放EFI引导文件）、MSR（保留分区）和主分区，强迫症表示非常不爽。撇开强迫症不说，如果需要扩展磁盘空间，有个MSR分区卡在中间的话，根本没法进行在线扩容，需要进入Windows PE利用分区软件来进行扩容，带来极大的不便。我们可以利用Windows安装镜像自带的Diskpart工具，亲手进行磁盘分区。</p>
