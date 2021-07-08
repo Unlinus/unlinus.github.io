@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>【Flag向】本站正式停更</title>
+    <url>/2021/07/08/%E3%80%90Flag%E5%90%91%E3%80%91%E6%9C%AC%E7%AB%99%E6%AD%A3%E5%BC%8F%E5%81%9C%E6%9B%B4/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>将要停更一段时间。<br>舍弃自己所爱，或许这才是最大的强求吧！</p>
+]]></content>
+  </entry>
+  <entry>
     <title>欢迎新成员——红米AX5使用感受</title>
     <url>/2021/07/07/%E6%AC%A2%E8%BF%8E%E6%96%B0%E6%88%90%E5%91%98%E2%80%94%E2%80%94%E7%BA%A2%E7%B1%B3AX5%E4%BD%BF%E7%94%A8%E6%84%9F%E5%8F%97/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>家里的无线路由器是TP-Link的WDR6500千兆版，2018年初升级电信宽带买的（当时还是小白，在电信营业厅200多买的，巨坑！网上随便100多就能搞到 = =），到目前为止服役了3年多。最近实在是受不了了，要么信号不稳定，要么隔一堵墙就从5GHz掉到2.4GHz。还有相当麻烦的一点就是，距离WiFi太远时不能切换到2.4GHz，或者离WiFi近时不能自动切换回5Ghz。我也尝试过改变路由器的摆放位置，也设置过定时重启，无果。那么办法只有一个了——买买买！</p>
@@ -24,7 +30,7 @@
 <p>手机端测试软件用的是WiFi魔盒。先来看看2.4Ghz和5Ghz的信道情况：<br><img src="https://cdn.unlinus.cn/hexo-images/2021-07-07-22-55-46.png" alt="2021-07-07-22-55-46"><br><img src="https://cdn.unlinus.cn/hexo-images/2021-07-07-22-55-59.png" alt="2021-07-07-22-55-59"></p>
 <p>拿着手机在各个房间区域走动，进行简单的漫游测试。其中，在从卧室到厨房走动的过程中，WiFi魔盒并未感知到WiFi漫游，但是从传输速率和延迟的变化，基本可以判定走动过程中确实发生了一次漫游：<br><img src="https://cdn.unlinus.cn/hexo-images/2021-07-07-23-06-50.png" alt="2021-07-07-23-06-50"><br><img src="https://cdn.unlinus.cn/hexo-images/2021-07-07-23-07-42.png" alt="2021-07-07-23-07-42"></p>
 <p>最后在全屋各个区域测试一下网速：<br><img src="https://cdn.unlinus.cn/hexo-images/2021-07-07-23-09-25.png" alt="2021-07-07-23-09-25"></p>
-<h2 id="测试小结"><a href="#测试小结" class="headerlink" title="测试小结"></a>测试小结</h2><p>测试结果还是挺不错的，WiFi漫游过程中基本能实现用户无感知。此外，虽然是采用无限回程的Mesh组网方式，但是终端的网速几乎不受影响，而且终端能够全程保持5GHz连接。后来又进行了一次测试，取消厨房的子Mesh节点，意外地发现网速依然能够保持在下行200M上行30M的水平，5GHz信号强度也比较高，估计得益于自带的独立信号放大器。这样看来，一个AX5也足够全屋5GHz覆盖了。从性价比角度来考虑的话，我觉得红米AX5是一个不错的选择。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>测试结果还是挺不错的，WiFi漫游过程中基本能实现用户无感知。此外，虽然是采用无限回程的Mesh组网方式，但是终端的网速几乎不受影响，而且终端能够全程保持5GHz连接。后来又进行了一次测试，取消厨房的子Mesh节点，意外地发现网速依然能够保持在下行200M上行30M的水平，5GHz信号强度也比较高，估计得益于自带的独立信号放大器。这样看来，一个AX5也足够全屋5GHz覆盖了。从性价比角度来考虑的话，我觉得红米AX5是一个不错的选择。</p>
 <h1 id="番外：Mesh组网和传统WDS无线桥接的区别？"><a href="#番外：Mesh组网和传统WDS无线桥接的区别？" class="headerlink" title="番外：Mesh组网和传统WDS无线桥接的区别？"></a>番外：Mesh组网和传统WDS无线桥接的区别？</h1><p>先说说漫游的概念。“在无线网络覆盖的范围里，用户有可能在移动中。但由于单个AP（无线访问接入点）设备的信号覆盖范围都是有限的，用户在移动过程中，往往会出现从一个AP覆盖范围跨越到另一个AP覆盖范围的情况。为了避免移动用户在不同的AP之间切换时，造成网络通讯中断的情况，这里就用到了无线漫游的技术。——摘自<a href="https://baike.baidu.com/item/%E6%97%A0%E7%BA%BF%E6%BC%AB%E6%B8%B8/981630?fr=aladdin">百度百科</a>”</p>
 <p>传统路由器的WDS无线桥接使用一台或多台无线路由器和主路由进行桥接，对主路由的无线网络进行拓展（即中继），提升无线的覆盖范围。然而，手机、笔记本等无线终端并不能根据自身的无线质量来决定连接哪一个接入点。</p>
 <p>Mesh组网与WDS无线桥接类似，但是它支持802.11 k/v/r协议。k用于收集终端的网络质量等信息，决定终端是否进行漫游，v用于请求终端进行无线漫游，r用于缩短无线漫游时间。有了802.11k/v/r，终端就能在不同的接入点之间，切换到网络质量更佳的接入点，而且全程不需要手动操作，提升用户体验。</p>
@@ -77,124 +83,6 @@
         <tag>服务器</tag>
         <tag>运维</tag>
         <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C语言基础：变量与常量</title>
-    <url>/2021/04/02/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%EF%BC%9A%E5%8F%98%E9%87%8F%E4%B8%8E%E5%B8%B8%E9%87%8F/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>变量和常量是程序处理的两种基本数据对象。</p>
-<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="变量简介"><a href="#变量简介" class="headerlink" title="变量简介"></a>变量简介</h2><p>变量即程序可操作的存储空间。程序可以通过直接调用变量名，来使用变量里面的数据。</p>
-<h2 id="变量命名方式"><a href="#变量命名方式" class="headerlink" title="变量命名方式"></a>变量命名方式</h2><p>变量的命名方式有明确的要求。</p>
-<ol>
-<li>变量名只能由26个大/小写字母、数字、下划线组合而成。</li>
-<li>变量名的首字符必须是字母或下划线。例如<code>test123</code>、<code>_killer</code>；</li>
-<li>变量名区分大小写。例如，<code>Unlinus</code>和<code>unlinus</code>是两个不同的变量。</li>
-<li>不能使用关键字给变量命名。</li>
-</ol>
-<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><p>截至目前为止，C语言的关键字共有44个。</p>
-<ul>
-<li>ANSI C：<table>
-<tr>
-<td>auto</td>
-<td>break</td>
-<td>case</td>
-<td>char</td>
-<td>const</td>
-<td>continue</td>
-<td>default</td>
-<td>do</td>
-</tr>
-<tr>
-<td>double</td>
-<td>else</td>
-<td>enum</td>
-<td>extern</td>
-<td>float</td>
-<td>for</td>
-<td>goto</td>
-<td>if</td>
-</tr>
-<tr>
-<td>int</td>
-<td>long</td>
-<td>register</td>
-<td>return</td>
-<td>short</td>
-<td>signed</td>
-<td>sizeof</td>
-<td>static</td>
-</tr>
-<tr>
-<td>struct</td>
-<td>switch</td>
-<td>typeof</td>
-<td>union</td>
-<td>unsigned</td>
-<td>void</td>
-<td>volatile</td>
-<td>while</td>
-</tr>
-</table></li>
-<li>C99新增关键字（1999年）：<table>
-<td>inline</td>
-<td>restrict</td>
-<td>_Bool</td>
-<td>_Complex</td>
-<td>_Imaginary</td>
-</table></li>
-<li>C11新增关键字（2011年）：<table>
-<td>_Alignas</td>
-<td>_Alignof</td>
-<td>_Atomic</td>
-<td>_Static_assert</td>
-<td>_Noreturn</td>
-<td>Thread_local</td>
-<td>_Generic</td>
-</table>
-
-</li>
-</ul>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>前面讲过，变量是程序可操作的存储空间。那么，这个存储空间的大小我们称之为数据类型。数据类型用于存放不同类型的数据，以提高存储空间的利用率。常见数据类型有:</p>
-<ol>
-<li>整型(int)，反映了所在主机中整数的最自然长度（主机不同，长度也不同）；</li>
-<li>字符型(char) ，只占用一个字节；</li>
-<li>单精度浮点型(float) ；</li>
-<li>双精度浮点型(double) 。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>开发</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C语言基础：Hello World！</title>
-    <url>/2021/03/30/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%EF%BC%9AHello%20World%EF%BC%81/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="开始之前…"><a href="#开始之前…" class="headerlink" title="开始之前…"></a>开始之前…</h1><p>本来打算学学Python的，然后因为种种原因，不得不重新回炉C语言。。。</p>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote>
-<p>C语言是一种通用的、面向过程式的计算机程序设计语言。1972年，为了移植与开发UNIX操作系统，丹尼斯·里奇在贝尔电话实验室设计开发了C语言。<br>C语言是一种广泛使用的计算机语言，它与Java编程语言一样普及，二者在现代软件程序员之间都得到广泛使用。<br>当前最新的C语言标准为C18 ，在它之前的C语言标准有C17、C11…C99 等。<br>——摘自<a href="https://www.runoob.com/cprogramming/c-tutorial.html">菜鸟教程</a></p>
-</blockquote>
-<h1 id="第一个C程序"><a href="#第一个C程序" class="headerlink" title="第一个C程序"></a>第一个C程序</h1><p>直接上代码：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello World!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行，看看效果如何（本人使用的是Visual Studio 2019）：<br><img src="https://cdn.unlinus.cn/hexo-images/2021-03-30-14-17-03.png" alt="2021-03-30-14-17-03"></p>
-<p>设计一门语言，其实可以说是设计一套约定和规定。只有用户按照这套规定和约定向C语言君输入了正确的指令，C语言君才能领悟用户的意图，对用户设计的程序进行编译，使程序被编译后能够正常运行。</p>
-<h1 id="思考与分析"><a href="#思考与分析" class="headerlink" title="思考与分析"></a>思考与分析</h1><p>现在对以上代码进行简单剖析：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*↓↓↓指定C编译器在实际编译前需要包含哪些预处理器，这里预处理器是stdio.h*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  <span class="comment">//定义主函数，程序从这里开始执行</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/*↓↓↓使用printf函数（格式化输出），将Hello World!输出到屏幕上*/</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello World!\n&quot;</span>);  <span class="comment">//\n是转义字符，用于换行</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;   <span class="comment">//终止main()函数，并返回一个int值0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>知识点</strong><br>这里涉及到了一个知识点——注释。注释用于对某一段程序进行注解，方便开发人员解读程序。注释内容并不是程序执行的一部分。也就是说，编译器会把注释忽略。</p>
-<p>在C语言里，注释分为单行注释和多行注释：</p>
-<ul>
-<li>单行注释用<code>//</code>表示，注释内容仅可以单独占一行，例如：<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//这是单行注释</span></span><br></pre></td></tr></table></figure></li>
-<li>多行注释则用<code>/* */</code>表示，注释内容可以占多行或单独一行，例如：<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">这是多行注释</span></span><br><span class="line"><span class="comment">阿巴阿巴阿巴阿巴阿巴阿巴</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*单行注释*/</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-      <categories>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
